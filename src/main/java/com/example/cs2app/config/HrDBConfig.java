@@ -33,7 +33,7 @@ public class HrDBConfig {
                                                                            @Qualifier("bookDataSource") DataSource dataSource) {
 		HashMap<String, Object> properties = new HashMap<>();
 		properties.put("hibernate.hbm2ddl.auto", "update");
-		properties.put("hibernate.dialect", "org.hibernate.dialect.SQLServer2012Dialect");
+//		properties.put("hibernate.dialect", "org.org.hibernate.dialect.MySQL5Dialect");
 		return builder.dataSource(dataSource).properties(properties)
 				.packages("com.example.cs2app.model.hr").persistenceUnit("Book").build();
 	}
