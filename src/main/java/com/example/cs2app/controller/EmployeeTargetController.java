@@ -10,12 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeTargetController {
     @Autowired
     EmployeeService employeeService;
@@ -33,7 +36,7 @@ public class EmployeeTargetController {
         for(Personal personal : personalList) {
             for(Employee employee : employeeList) {
 
-                if(personal.getEmployee_ID().equals(employee.getIdEmployee())) {
+                if(personal.getEmployee_ID().equals(employee.getEmployee_Number())) {
                     EmployeeDTO employeeDTO = new EmployeeDTO();
                     employeeDTO.setEmployee_ID(personal.getEmployee_ID());
                     employeeDTO.setFirst_Name(personal.getFirst_Name());
@@ -55,9 +58,10 @@ public class EmployeeTargetController {
                     employeeDTO.setShareholder_Status(personal.getShareholder_Status());
                     employeeDTO.setBenefit_Plans(personal.getBenefit_Plans());
                     employeeDTO.setEthnicity(personal.getEthnicity());
+                    employeeDTO.setGender(personal.getGender());
 
                     employeeDTO.setSSN(employee.getSSN());
-                    employeeDTO.setPay_Rate(employee.getPay_Rate());
+                    employeeDTO.setPay_Rate(employee.getPay_Rates().getPay_Rate_Name());
                     employeeDTO.setVacation_Days(employee.getVacation_Days());
                     employeeDTO.setPaid_To_Date(employee.getPaid_To_Date());
                     employeeDTO.setPaid_Last_Year(employee.getPaid_Last_Year());

@@ -31,10 +31,8 @@ public class EmployeeDTO {
 
     // payroll
     private Integer Employee_Number;
-    private Integer idEmployee;
     private Double SSN;
     private String Pay_Rate;
-    private Integer PayRates_id;
     private String Vacation_Days;
     private Double Paid_To_Date;
     private String Paid_Last_Year;
