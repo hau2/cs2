@@ -26,9 +26,11 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name="idPay_Rates")
     private PayRates Pay_Rates;
-
-    private Integer PayRates_id;
+    
     private String Vacation_Days;
     private Double Paid_To_Date;
     private String Paid_Last_Year;
+    private String Tax_Percentage;
+    private Double Value;
+    private Double PayAmount;
 }

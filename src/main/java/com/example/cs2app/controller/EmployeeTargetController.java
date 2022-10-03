@@ -37,6 +37,8 @@ public class EmployeeTargetController {
             for(Employee employee : employeeList) {
 
                 if(personal.getEmployee_ID().equals(employee.getEmployee_Number())) {
+                    System.out.println(employee.getTax_Percentage());
+
                     EmployeeDTO employeeDTO = new EmployeeDTO();
                     employeeDTO.setEmployee_ID(personal.getEmployee_ID());
                     employeeDTO.setFirst_Name(personal.getFirst_Name());
@@ -65,6 +67,9 @@ public class EmployeeTargetController {
                     employeeDTO.setVacation_Days(employee.getVacation_Days());
                     employeeDTO.setPaid_To_Date(employee.getPaid_To_Date());
                     employeeDTO.setPaid_Last_Year(employee.getPaid_Last_Year());
+                    employeeDTO.setTax_Percentage(employee.getTax_Percentage());
+                    employeeDTO.setPayAmount(employee.getPayAmount());
+                    employeeDTO.setValue(employee.getValue());
 
                     employeeDTOList.add(employeeDTO);
                 }

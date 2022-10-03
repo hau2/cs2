@@ -22,20 +22,20 @@ import java.util.HashMap;
 		"com.example.cs2app.hr.repository" })
 public class HrDBConfig {
 
-	@Bean(name = "bookDataSource")
-	@ConfigurationProperties(prefix = "spring.book.datasource")
+	@Bean(name = "hrDataSource")
+	@ConfigurationProperties(prefix = "spring.hr.datasource")
 	public DataSource dataSource() {
 		return DataSourceBuilder.create().build();
 	}
 
 	@Bean(name = "bookEntityManagerFactory")
 	public LocalContainerEntityManagerFactoryBean bookEntityManagerFactory(EntityManagerFactoryBuilder builder,
-                                                                           @Qualifier("bookDataSource") DataSource dataSource) {
+																		   @Qualifier("hrDataSource") DataSource dataSource) {
 		HashMap<String, Object> properties = new HashMap<>();
 		properties.put("hibernate.hbm2ddl.auto", "update");
-//		properties.put("hibernate.dialect", "org.org.hibernate.dialect.MySQL5Dialect");
+		properties.put("hibernate.dialect", "org.hibernate.dialect.SQLServer2012Dialect");
 		return builder.dataSource(dataSource).properties(properties)
-				.packages("com.example.cs2app.model.hr").persistenceUnit("Book").build();
+				.packages("com.example.cs2app.model.hr").persistenceUnit("Personal").build();
 	}
 
 	@Bean(name = "bookTransactionManager")

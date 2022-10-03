@@ -24,7 +24,7 @@ import java.util.HashMap;
 public class PayrollDBConfig {
 	@Primary
 	@Bean(name = "dataSource")
-	@ConfigurationProperties(prefix = "spring.user.datasource")
+	@ConfigurationProperties(prefix = "spring.payroll.datasource")
 	public DataSource dataSource() {
 		return DataSourceBuilder.create().build();
 	}

@@ -36,4 +36,7 @@ public class EmployeeDTO {
     private String Vacation_Days;
     private Double Paid_To_Date;
     private String Paid_Last_Year;
+    private String Tax_Percentage;
+    private Double Value;
+    private Double PayAmount;
 }
